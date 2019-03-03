@@ -3,7 +3,6 @@
 
 int main() {
 	AllInit();
-	
 	for(int index = 0; index < BRD_SQ_NUM; ++index)
 	{
 		if(index % 10 == 0)
