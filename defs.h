@@ -1,6 +1,24 @@
 #ifndef DEFS_H
 #define DEFS_H
 
+#include "stdlib.h"
+
+#define DEBUG
+
+#ifndef DEBUG
+#define ASSERT(n)
+#else
+#define ASSERT(n) \
+if(!(n)) { \
+	printf("%s - Failed", #n); \
+	printf("On %s ", __DATE__); \
+	printf("At %s ",__TIME__);\
+	printf("In File %s ", __FILE__); \
+	printf("AtcLine %d\n", __LINE__); \
+	exit(1); \
+}
+#endif
+
 typedef unsigned long long U64;
 
 #define NAME "Vice 1.0"
@@ -63,12 +81,16 @@ typedef struct {
 	int minPce[3];
 	
 	S_UNDO history[MAXGAMEMOVES];
+
+	// piece list
+	int plist[13][10];
 	
 } S_BOARD;
 
 /* MACROS */
 
 #define FR2Sq(f, r) ( (21 + (f) ) + ( (r) * 10 ) ) // gives the array based number
+#define SQ64(sq120) Sq120ToSq64[sq120]
 
 /* GLOBALS */
 
@@ -77,9 +99,13 @@ extern int Sq64ToSq120[64];
 
 /* FUNCTIONS */
 
+// init.c 
+
 extern void AllInit();
 
-// init.c 
+//bitboards.c
+
+extern void PrintBitBoard(U64 bb);
 
 
 
