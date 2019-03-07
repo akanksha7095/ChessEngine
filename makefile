@@ -1,2 +1,2 @@
 all:
-	gcc vice.c defs.h init.c bitboards.c
+	gcc vice.c defs.h init.c bitboards.c hashkeys.c
