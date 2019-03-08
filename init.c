@@ -15,7 +15,7 @@ U64 ClearMask[64];
 
 U64 PieceKeys[13][120];
 U64 SideKey;
-U64 Castlekeys[16];
+U64 CastleKeys[16];
 
 void InitHashKeys() {
 
@@ -30,7 +30,7 @@ void InitHashKeys() {
 	SideKey = RAND_64;
 	for(index = 0; index < 16; index++)
 	{
-		Castlekeys[index] = RAND_64;
+		CastleKeys[index] = RAND_64;
 	}
 }
 
