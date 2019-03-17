@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "defs.h"
 
-void UpdateListMaterial(S_BOARD *pos)
+void UpdateListsMaterial(S_BOARD *pos)
 {
 	int piece, sq, index, colour;
 
@@ -153,6 +153,7 @@ int ParseFen(char *fen, S_BOARD *pos) {
 	}
 
 	pos->posKey = GeneratePosKey(pos);
+	UpdateListsMaterial(pos);
 
 	return 0;
 

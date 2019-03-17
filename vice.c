@@ -14,7 +14,8 @@ int main() {
 
 	S_BOARD board[1];
 
-	ParseFen(FEN4, board);
+	ParseFen(FEN3, board);
+	
 	PrintBoard(board);
 	printf("\nwP:\n");
 	PrintBitBoard(board->pawns[WHITE]);
