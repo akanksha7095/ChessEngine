@@ -14,15 +14,10 @@ int main() {
 
 	S_BOARD board[1];
 
-	ParseFen(FEN3, board);
+	ParseFen(FEN4, board);
 	
 	PrintBoard(board);
-	printf("\nwP:\n");
-	PrintBitBoard(board->pawns[WHITE]);
-	printf("\nbP:\n");
-	PrintBitBoard(board->pawns[BLACK]);
-	printf("\nall:\n");
-	PrintBitBoard(board->pawns[BOTH]);
+	ASSERT(CheckBoard(board));
 	
 
 	return 0;
