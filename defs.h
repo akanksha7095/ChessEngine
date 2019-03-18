@@ -51,6 +51,12 @@ enum { FALSE, TRUE };
 enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8};
 
 typedef struct {
+	int move;
+	int score;
+
+}S_MOVE;
+
+typedef struct {
 	
 	int move;
 	int castlePerm;
@@ -90,6 +96,20 @@ typedef struct {
 	int pList[13][10];
 	
 } S_BOARD;
+
+// GAME MOVE
+ 
+#define FROMSQ(m)((m) & 0x3F)
+#define TOSQ(m) (((m) >> 7) & 0x3F)
+#define CAPTURED(m) (((m) >> 14) & 0xF)
+#define CAPTURED(m) (((m) >> 20) & 0xF)
+
+#define MFLAGEP 0x40000
+#define MFLAGPS 0x80000
+#define MFLAGCA 0x100000
+
+#define MFLAGCAP 0x7C000
+#define MFLAGPROM 0xF00000
 
 /* MACROS */
 
@@ -155,5 +175,8 @@ extern int ParseFen(char *fen, S_BOARD *pos);
 extern void PrintBoard(const S_BOARD *pos);
 extern void UpdateListsMaterial(S_BOARD *pos);
 extern int CheckBoard(const S_BOARD *pos);
+
+//attack.c
+extern int SqAttacked(const int sq, const int side, const S_BOARD *pos);
 
 #endif
