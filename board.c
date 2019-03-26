@@ -60,7 +60,12 @@ int CheckBoard(const S_BOARD *pos){
 	while(t_pawns[BLACK])
 	{
 		sq64 = POP(&t_pawns[BLACK]);
-		ASSERT((pos->pieces[SQ120(sq64)] == bP) || (pos->pieces[SQ120(sq64)] == wP));
+		ASSERT(pos->pieces[SQ120(sq64)] == bP);
+	}
+
+	while(t_pawns[BOTH]) {
+		sq64 = POP(&t_pawns[BOTH]);
+		ASSERT( (pos->pieces[SQ120(sq64)] == bP) || (pos->pieces[SQ120(sq64)] == wP) );
 	}
 	
 	ASSERT(t_material[WHITE] == pos->material[WHITE] && t_material[BLACK] == pos->material[BLACK]);
