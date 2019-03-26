@@ -42,6 +42,7 @@ int CheckBoard(const S_BOARD *pos){
 	for(t_piece = wP; t_piece <= bK; t_piece++)
 		ASSERT(t_pceNum[t_piece] == pos->pceNum[t_piece]);
 
+	//check bitboards count
 	pcount = CNT(t_pawns[WHITE]);
 	ASSERT(pcount == pos->pceNum[wP]);
 	pcount = CNT(t_pawns[BLACK]);
@@ -49,7 +50,7 @@ int CheckBoard(const S_BOARD *pos){
 	pcount = CNT(t_pawns[BOTH]);
 	ASSERT(pcount == (pos->pceNum[bP] + pos->pceNum[wP]));
 
-
+	// check bitboards squares
 	while(t_pawns[WHITE])
 	{
 		sq64 = POP(&t_pawns[WHITE]);
