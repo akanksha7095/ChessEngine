@@ -40,7 +40,7 @@ static void AddQuietMove(const S_BOARD *pos, int move, S_MOVELIST *list)
 	list->count++;
 }
 
-atatic void AddCaptureMove(const S_BOARD *pos, int move, S_MOVELIST *list)
+static void AddCaptureMove(const S_BOARD *pos, int move, S_MOVELIST *list)
 {
 	list->moves[list->count].move = move;
 	list->moves[list->count].score = 0;
